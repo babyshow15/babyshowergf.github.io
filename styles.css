@@ -1,5 +1,17 @@
-/* styles.css */
+body {
+  margin: 0;
+  padding: 20px;
+  background-color: #FFF5E6;
+  font-family: 'Comic Sans MS', cursive;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+}
+
 #honey-jar {
+  width: 200px;
   cursor: pointer;
   margin: 20px 0;
   transition: transform 0.3s;
@@ -9,27 +21,17 @@
   transform: scale(1.05);
 }
 
+.hidden {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  transition: opacity 1s;
+}
+
 #invitation {
   background-color: #FFF8E1;
   padding: 20px;
   border-radius: 15px;
   margin-top: 20px;
   border: 2px dashed #F9A825;
-  opacity: 0;
-  height: 0;
-  overflow: hidden;
-  transition: opacity 1s, height 0.5s;
-}
-
-#invitation.show {
-  opacity: 1;
-  height: auto;
-}
-
-/* Móvil */
-@media (max-width: 600px) {
-  #honey-jar {
-    width: 200px;
-    height: auto;
-  }
 }
