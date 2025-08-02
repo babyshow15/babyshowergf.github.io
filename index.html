@@ -1,34 +1,60 @@
-<!-- Dentro de <body> en index.html -->
-<div class="invitation-container">
-  <h2>¡Baby Shower con Winnie the Pooh!</h2>
-  
-  <!-- Tarro de miel SVG (nuevo diseño) -->
-  <svg id="honey-jar" viewBox="0 0 200 250" width="250" height="300">
-    <!-- Tarro (forma clásica con asa) -->
-    <path id="jar-body" d="M50 50 Q100 20 150 50 L150 180 Q100 210 50 180 Z" fill="#F9A825" stroke="#5D4037" stroke-width="3"/>
-    <!-- Asa del tarro -->
-    <path id="jar-handle" d="M150 80 Q170 100 150 120" fill="none" stroke="#5D4037" stroke-width="3" stroke-linecap="round"/>
-    <!-- Etiqueta -->
-    <rect x="75" y="90" width="50" height="20" rx="3" fill="#FFFFFF" stroke="#5D4037" stroke-width="1"/>
-    <text x="100" y="105" text-anchor="middle" font-size="8" fill="#5D4037">MIEL</text>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invitación Baby Shower</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Estilos base para móvil */
+    body {
+      margin: 0;
+      padding: 20px;
+      background-color: #FFF5E6;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+    <!-- Dentro de <body> en index.html -->
+  <div class="invitation-container">
+    <h2>¡Baby Shower con Winnie the Pooh!</h2>
     
-    <!-- Miel (dos capas para animación) -->
-    <path id="honey-top" d="M60 70 Q100 50 140 70 L140 100 Q100 90 60 100 Z" fill="#FFC107"/>
-    <path id="honey-drip" d="M100 100 L105 110 L95 110 Z" fill="#FFA000" opacity="0"/>
+    <!-- Tarro de miel SVG (nuevo diseño) -->
+    <svg id="honey-jar" viewBox="0 0 200 250" width="250" height="300">
+      <!-- Tarro (forma clásica con asa) -->
+      <path id="jar-body" d="M50 50 Q100 20 150 50 L150 180 Q100 210 50 180 Z" fill="#F9A825" stroke="#5D4037" stroke-width="3"/>
+      <!-- Asa del tarro -->
+      <path id="jar-handle" d="M150 80 Q170 100 150 120" fill="none" stroke="#5D4037" stroke-width="3" stroke-linecap="round"/>
+      <!-- Etiqueta -->
+      <rect x="75" y="90" width="50" height="20" rx="3" fill="#FFFFFF" stroke="#5D4037" stroke-width="1"/>
+      <text x="100" y="105" text-anchor="middle" font-size="8" fill="#5D4037">MIEL</text>
+      
+      <!-- Miel (dos capas para animación) -->
+      <path id="honey-top" d="M60 70 Q100 50 140 70 L140 100 Q100 90 60 100 Z" fill="#FFC107"/>
+      <path id="honey-drip" d="M100 100 L105 110 L95 110 Z" fill="#FFA000" opacity="0"/>
+      
+      <!-- Gotas de miel (inicialmente ocultas) -->
+      <circle id="drop1" cx="110" cy="120" r="3" fill="#FFA000" opacity="0"/>
+      <circle id="drop2" cx="90" cy="125" r="2" fill="#FFA000" opacity="0"/>
+    </svg>
     
-    <!-- Gotas de miel (inicialmente ocultas) -->
-    <circle id="drop1" cx="110" cy="120" r="3" fill="#FFA000" opacity="0"/>
-    <circle id="drop2" cx="90" cy="125" r="2" fill="#FFA000" opacity="0"/>
-  </svg>
-  
-  <p id="instruction">¡Toca el tarro para ver la sorpresa!</p>
-  
-  <!-- Invitación oculta -->
-  <div id="invitation" class="hidden">
-    <h1>¡Es un Niño!</h1>
-    <p>Fecha: 20 de Noviembre 2023</p>
-    <p>Lugar: Bosque de los Cien Acres</p>
+    <p id="instruction">¡Toca el tarro para ver la sorpresa!</p>
+    
+    <!-- Invitación oculta -->
+    <div id="invitation" class="hidden">
+      <h1>¡Es un Niño!</h1>
+      <p>Fecha: 20 de Noviembre 2023</p>
+      <p>Lugar: Bosque de los Cien Acres</p>
+    </div>
   </div>
-</div>
 
-<audio id="honey-audio" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" loop></audio>
+  <audio id="honey-audio" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" loop></audio>
+</body>
+</html>
