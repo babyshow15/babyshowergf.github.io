@@ -1,31 +1,12 @@
-/* Estilos generales */
-.invitation-container {
-  max-width: 100%;
-  padding: 20px;
-}
-
+/* styles.css */
 #honey-jar {
   cursor: pointer;
   margin: 20px 0;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
   transition: transform 0.3s;
 }
 
 #honey-jar:hover {
   transform: scale(1.05);
-}
-
-.instruction-text {
-  color: #5D4037;
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-}
-
-.hidden {
-  opacity: 0;
-  height: 0;
-  overflow: hidden;
-  transition: opacity 1s, height 1s;
 }
 
 #invitation {
@@ -34,26 +15,21 @@
   border-radius: 15px;
   margin-top: 20px;
   border: 2px dashed #F9A825;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  transition: opacity 1s, height 0.5s;
 }
 
-#music-btn {
-  background-color: #FFD54F;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 20px;
-  margin-top: 15px;
-  cursor: pointer;
-  font-size: 1rem;
+#invitation.show {
+  opacity: 1;
+  height: auto;
 }
 
-/* Responsive para móviles */
+/* Móvil */
 @media (max-width: 600px) {
   #honey-jar {
     width: 200px;
     height: auto;
-  }
-  
-  .instruction-text {
-    font-size: 1rem;
   }
 }
