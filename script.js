@@ -1,55 +1,45 @@
+// script.js
 document.addEventListener('DOMContentLoaded', () => {
   const jar = document.getElementById('honey-jar');
-  const stick = document.getElementById('honey-stick');
-  const invitation = document.getElementById('invitation');
-  const musicBtn = document.getElementById('music-btn');
+  const audio = document.getElementById('honey-audio');
   
-  // Audio (opcional)
-  const audio = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3');
-  audio.volume = 0.3;
+  jar.addEventListener('click', startAnimation);
+  jar.addEventListener('touchstart', startAnimation);
   
-  // Animación al tocar/clickear
-  jar.addEventListener('click', animateJar);
-  jar.addEventListener('touchstart', animateJar);
-  
-  // Control de música
-  musicBtn?.addEventListener('click', () => {
-    if (audio.paused) {
-      audio.play();
-      musicBtn.textContent = '🔊 Pausar música';
-    } else {
-      audio.pause();
-      musicBtn.textContent = '🎵 Reproducir música';
-    }
-  });
-  
-  function animateJar() {
+  function startAnimation() {
     // Deshabilitar interacción durante la animación
     jar.style.pointerEvents = 'none';
     
-    // 1. Animación del palito
-    gsap.to(stick, {
-      rotation: 360,
-      transformOrigin: "50% 50%",
-      duration: 2,
-      ease: "power2.inOut"
+    // 1. Miel se mueve hacia abajo
+    gsap.to("#honey-top", {
+      attr: { d: "M60 70 Q100 120 140 70 L140 150 Q100 180 60 150 Z" },
+      duration: 1.5,
+      ease: "sine.out"
     });
     
-    // 2. Efecto de remolino en la miel
-    gsap.to("#honey-liquid", {
-      attr: { d: "M50 80 Q100 20 150 80 L150 170 Q100 230 50 170 Z" },
-      duration: 2,
-      ease: "elastic.out(1, 0.5)"
+    // 2. Gota de miel aparece y cae
+    gsap.to("#honey-drip", {
+      opacity: 1,
+      y: 50,
+      duration: 1,
+      delay: 0.5
     });
     
-    // 3. Revelar invitación
-    setTimeout(() => {
-      invitation.classList.remove('hidden');
-      gsap.to("#invitation", {
-        opacity: 1,
-        height: "auto",
-        duration: 1
-      });
-    }, 2000);
+    // 3. Gotas adicionales
+    gsap.to(["#drop1", "#drop2"], {
+      opacity: 1,
+      y: 30,
+      duration: 1,
+      delay: 0.8,
+      stagger: 0.2,
+      onComplete: () => {
+        // 4. Revelar invitación y reproducir música
+        document.getElementById("invitation").classList.remove("hidden");
+        audio.play().catch(e => console.log("Autoplay bloqueado:", e));
+        
+        // Efecto de aparición suave
+        gsap.to("#invitation", { opacity: 1, duration: 1 });
+      }
+    });
   }
 });
