@@ -1,22 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const jarBody = document.getElementById('jar-body');
   const jarLid = document.getElementById('jar-lid');
   const invitation = document.getElementById('invitation');
   
-  // 1. Palpitación inicial (para llamar la atención)
+  // 1. Palpitación inicial para llamar la atención
   jarLid.classList.add('pulse');
   
-  // 2. Al tocar el frasco
-  jarBody.addEventListener('click', () => {
+  // 2. Al hacer clic en la tapa
+  jarLid.addEventListener('click', () => {
     // Detener palpitar
     jarLid.classList.remove('pulse');
     
-    // Animación de apertura con GSAP
+    // Animación de apertura (solo hacia arriba)
     gsap.to(jarLid, {
-      y: -100,          // Mueve la tapa hacia arriba
-      rotation: -20,    // Gira ligeramente
-      duration: 2,
-      ease: "back.out(1.7)",
+      y: -120,          // Mueve la tapa hacia arriba (ajusta este valor según tu SVG)
+      duration: 1.5,
+      ease: "power2.out",
       onComplete: () => {
         // Mostrar invitación
         invitation.classList.remove('hidden');
