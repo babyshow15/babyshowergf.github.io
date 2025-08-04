@@ -1,37 +1,44 @@
 body {
-  margin: 0;
-  padding: 20px;
   background-color: #FFF5E6;
-  font-family: 'Comic Sans MS', cursive;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  height: 100vh;
+  margin: 0;
+  font-family: 'Comic Sans MS', cursive;
+}
+
+.container {
+  position: relative;
   text-align: center;
 }
 
-#honey-jar {
-  width: 200px;
+#jar-body {
+  width: 250px;
   cursor: pointer;
-  margin: 20px 0;
-  transition: transform 0.3s;
 }
 
-#honey-jar:hover {
-  transform: scale(1.05);
+.jar-lid {
+  position: absolute;
+  width: 250px;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: transform 0.3s;
 }
 
 .hidden {
   opacity: 0;
-  height: 0;
-  overflow: hidden;
   transition: opacity 1s;
 }
 
-#invitation {
-  background-color: #FFF8E1;
-  padding: 20px;
-  border-radius: 15px;
-  margin-top: 20px;
-  border: 2px dashed #F9A825;
+/* Animación de palpitar */
+@keyframes pulse {
+  0% { transform: translateX(-50%) scale(1); }
+  50% { transform: translateX(-50%) scale(1.05); }
+  100% { transform: translateX(-50%) scale(1); }
+}
+
+.pulse {
+  animation: pulse 2s infinite;
 }
