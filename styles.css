@@ -13,23 +13,17 @@ body {
   text-align: center;
 }
 
-#jar-body {
-  width: 250px;
-  cursor: pointer;
+#jar-body, .jar-lid {
+  width: 200px; /* Ajusta según el tamaño de tus SVGs */
 }
 
 .jar-lid {
   position: absolute;
-  width: 250px;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  transition: transform 0.3s;
-}
-
-.hidden {
-  opacity: 0;
-  transition: opacity 1s;
+  cursor: pointer;
+  transition: transform 0.5s;
 }
 
 /* Animación de palpitar */
@@ -40,5 +34,10 @@ body {
 }
 
 .pulse {
-  animation: pulse 2s infinite;
+  animation: pulse 1.5s infinite;
+}
+
+.hidden {
+  opacity: 0;
+  transition: opacity 0.8s;
 }
