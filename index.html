@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Invitación Baby Shower</title>
+  <title>Baby Shower Winnie the Pooh</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="container">
-    <!-- Frasco (cuerpo) -->
+    <!-- Cuerpo del frasco (fijo) -->
     <img id="jar-body" src="media/hunnySVG_BOULD.svg" alt="Frasco de miel">
     
-    <!-- Tapa (separada para animar) -->
+    <!-- Tapa (se moverá hacia arriba) -->
     <img id="jar-lid" src="media/hunnySVG_TAPA.svg" alt="Tapa del frasco" class="jar-lid">
     
-    <!-- Invitación (oculta inicialmente) -->
+    <!-- Invitación (aparecerá al abrir) -->
     <img id="invitation" src="media/prueba_abre.svg" alt="Invitación" class="hidden">
   </div>
 
-  <!-- GSAP + Script -->
+  <!-- GSAP para animaciones -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
   <script src="script.js"></script>
 </body>
