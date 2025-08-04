@@ -7,34 +7,18 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="invitation-container">
-    <h2>¡Toca el tarro de miel!</h2>
+  <div class="container">
+    <!-- Frasco (cuerpo) -->
+    <img id="jar-body" src="media/hunnySVG_BOULD.svg" alt="Frasco de miel">
     
-    <!-- Tarro de miel SVG -->
-    <svg id="honey-jar" viewBox="0 0 200 250">
-      <!-- Cuerpo del tarro -->
-      <path id="jar-body" d="M50 50 Q100 20 150 50 L150 180 Q100 210 50 180 Z" fill="#F9A825" stroke="#5D4037" stroke-width="3"/>
-      <!-- Asa -->
-      <path id="jar-handle" d="M150 80 Q170 100 150 120" fill="none" stroke="#5D4037" stroke-width="3"/>
-      <!-- Miel (parte superior) -->
-      <path id="honey-top" d="M60 70 Q100 50 140 70 L140 100 Q100 90 60 100 Z" fill="#FFC107"/>
-      <!-- Gota de miel (invisible al inicio) -->
-      <path id="honey-drip" d="M100 100 L105 110 L95 110 Z" fill="#FFA000" opacity="0"/>
-    </svg>
+    <!-- Tapa (separada para animar) -->
+    <img id="jar-lid" src="media/hunnySVG_TAPA.svg" alt="Tapa del frasco" class="jar-lid">
     
-    <!-- Invitación oculta -->
-    <div id="invitation" class="hidden">
-      <h1>¡Baby Shower!</h1>
-      <p>Fecha: 25 de Diciembre</p>
-    </div>
+    <!-- Invitación (oculta inicialmente) -->
+    <img id="invitation" src="media/prueba_abre.svg" alt="Invitación" class="hidden">
   </div>
 
-  <!-- Audio (oculto) -->
-  <audio id="honey-audio" loop>
-    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-  </audio>
-
-  <!-- GSAP (CDN) -->
+  <!-- GSAP + Script -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
   <script src="script.js"></script>
 </body>
