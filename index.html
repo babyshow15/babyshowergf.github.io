@@ -3,18 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Baby Shower Winnie the Pooh</title>
+  <title>Invitación Baby Shower</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <!-- Ejemplo con enlaces directos a tus SVG en GitHub -->
-<img id="jar-body" src="https://raw.githubusercontent.com/babyshow15/babyshowergf.github.io/main/media/hunnySVG_BOULD.svg" alt="Frasco">
-<img id="jar-lid" src="https://raw.githubusercontent.com/babyshow15/babyshowergf.github.io/main/media/hunnySVG_TAPA.svg" alt="Tapa">
-<img id="invitation" src="https://raw.githubusercontent.com/babyshow15/babyshowergf.github.io/main/media/prueba_abre.svg" alt="Invitación" class="hidden">
-  </div>
+  <!-- Bloque 1: Intro con frasco -->
+  <section class="block" id="block-intro">
+    <div class="jar-container">
+      <img id="jar-body" src="media/hunnySVG_BOULD.svg" alt="Frasco">
+      <img id="jar-lid" src="media/hunnySVG_TAPA.svg" alt="Tapa">
+    </div>
+  </section>
 
-  <!-- GSAP para animaciones -->
+  <!-- Bloque 2: Invitación -->
+  <section class="block hidden" id="block-invitation">
+    <img src="media/prueba_abre.svg" alt="Invitación" class="invitation-img">
+  </section>
+
+  <!-- Bloque 3: Espacio para futuros elementos -->
+  <section class="block" id="block-extra">
+    <p>Aquí puedes poner más cosas después (texto, botones, música, etc.)</p>
+  </section>
+
+  <!-- GSAP -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
   <script src="script.js"></script>
 </body>
