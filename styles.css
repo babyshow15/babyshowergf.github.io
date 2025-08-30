@@ -70,6 +70,13 @@ body {
   will-change: transform, opacity;
   transform: translateZ(0); /* fuerza repintado en móviles */
 }
+#jar-body, #jar-lid {
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: transform, opacity;
+}
+
 
 
 
