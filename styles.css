@@ -65,3 +65,11 @@ body {
   display: none;
 }
 
+
+#jar-body {
+  will-change: transform, opacity;
+  transform: translateZ(0); /* fuerza repintado en móviles */
+}
+
+
+
