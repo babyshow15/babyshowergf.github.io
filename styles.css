@@ -1,8 +1,13 @@
-/* Fondo degradado pastel */
+/* Fondo degradado pastel con prefijos para navegadores */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: linear-gradient(to bottom, #fff9c4, #bbdefb); /* amarillo pastel a azul pastel */
+  background: #fff9c4; /* Fallback para navegadores que no soportan degradado */
+  background: -webkit-linear-gradient(top, #fff9c4, #bbdefb); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #fff9c4, #bbdefb); /* Standard syntax */
+  -webkit-font-smoothing: antialiased; /* Mejora el renderizado de texto en Chrome */
+  -moz-osx-font-smoothing: grayscale; /* Mejora el renderizado en Firefox */
+  overflow-x: hidden;
 }
 
 /* Bloques de la página */
@@ -11,9 +16,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid black; /* DEBUG: bordes visibles */
   box-sizing: border-box;
   text-align: center;
+  padding: 20px;
 }
 
 /* Contenedor del frasco */
@@ -22,41 +27,76 @@ body {
   width: 70vw;       /* ancho relativo para móviles */
   max-width: 320px;  /* límite en pantallas grandes */
   margin: auto;
+  -webkit-perspective: 1000px; /* Mejora renderizado 3D en Chrome/Safari */
+  perspective: 1000px;
 }
 
-/* Frasco y tapa: animaciones y renderizado seguro */
-#jar-body, #jar-lid {
+#jar-body {
   width: 100%;
   height: auto;
   display: block;
-  will-change: transform, opacity;
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
-  -webkit-backface-visibility: hidden;
+  -webkit-backface-visibility: hidden; /* Previene parpadeo en Chrome */
   backface-visibility: hidden;
+  -webkit-transform: translateZ(0); /* Acelera el renderizado en Chrome */
+  transform: translateZ(0);
+  image-rendering: -webkit-optimize-contrast; /* Mejora calidad de imagen en Chrome */
+  image-rendering: crisp-edges;
 }
 
-/* Ajustes específicos para la tapa */
 #jar-lid {
   position: absolute;
   top: -8%;
   left: 50%;
-  transform: translateX(-50%) translateZ(0);
-  -webkit-transform: translateX(-50%) translateZ(0);
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
   width: 90%;
+  height: auto;
   cursor: pointer;
   z-index: 2;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translateX(-50%) translateZ(0);
+  transform: translateX(-50%) translateZ(0);
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
 
 /* Imagen de la invitación */
 .invitation-img {
   max-width: 90%;
+  max-height: 90vh;
   height: auto;
   display: block;
   margin: auto;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 /* Ocultar bloques */
 .hidden {
-  display: none;
+  display: none !important;
+}
+
+/* Animaciones para mejor rendimiento */
+.animated-element {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: transform, opacity;
+}
+
+/* Media queries para diferentes dispositivos */
+@media (max-width: 768px) {
+  .jar-container {
+    width: 85vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .jar-container {
+    width: 95vw;
+  }
+  
+  #jar-lid {
+    top: -5%;
+  }
 }
