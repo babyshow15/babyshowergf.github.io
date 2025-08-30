@@ -13,26 +13,30 @@ body {
   align-items: center;
   border: 2px solid black; /* DEBUG: bordes visibles */
   box-sizing: border-box;
+  text-align: center;
 }
 
 /* Contenedor del frasco */
 .jar-container {
   position: relative;
-  width: 60vw; /* responsivo */
-  max-width: 300px; 
+  width: 70vw;       /* ancho relativo para móviles */
+  max-width: 320px;  /* límite en pantallas grandes */
+  margin: auto;
 }
 
 #jar-body {
   width: 100%;
+  height: auto;
   display: block;
 }
 
 #jar-lid {
   position: absolute;
-  top: -10%;
+  top: -8%;
   left: 50%;
   transform: translateX(-50%);
-  width: 80%;
+  width: 90%;
+  height: auto;
   cursor: pointer;
   z-index: 2;
 }
@@ -41,6 +45,8 @@ body {
 .invitation-img {
   max-width: 90%;
   height: auto;
+  display: block;
+  margin: auto;
 }
 
 /* Ocultar bloques */
