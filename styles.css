@@ -23,31 +23,27 @@ body {
   max-width: 320px;  /* límite en pantallas grandes */
   margin: auto;
 }
-/* Fuerza a que el frasco se pinte siempre */
-#frasco {
-  display: block;
-  opacity: 1 !important;
-  visibility: visible !important;
-  position: relative;
-  z-index: 10;
-  will-change: auto;
-  transform: translateZ(0); /* esto fuerza repintado en móviles */
-  image-rendering: auto;
-}
 
-#jar-body {
+/* Frasco y tapa: animaciones y renderizado seguro */
+#jar-body, #jar-lid {
   width: 100%;
   height: auto;
   display: block;
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
+/* Ajustes específicos para la tapa */
 #jar-lid {
   position: absolute;
   top: -8%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateZ(0);
+  -webkit-transform: translateX(-50%) translateZ(0);
   width: 90%;
-  height: auto;
   cursor: pointer;
   z-index: 2;
 }
@@ -64,19 +60,3 @@ body {
 .hidden {
   display: none;
 }
-
-
-#jar-body {
-  will-change: transform, opacity;
-  transform: translateZ(0); /* fuerza repintado en móviles */
-}
-#jar-body, #jar-lid {
-  -webkit-backface-visibility: hidden;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  will-change: transform, opacity;
-}
-
-
-
-
