@@ -1,43 +1,49 @@
+/* Fondo degradado pastel */
 body {
-  background-color: #FFF5E6;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #fff9c4, #bbdefb); /* amarillo pastel a azul pastel */
+}
+
+/* Bloques de la página */
+.block {
+  min-height: 100vh; /* cada bloque ocupa toda la pantalla */
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  margin: 0;
-  font-family: 'Comic Sans MS', cursive;
+  border: 2px solid black; /* DEBUG: bordes visibles */
+  box-sizing: border-box;
 }
 
-.container {
+/* Contenedor del frasco */
+.jar-container {
   position: relative;
-  text-align: center;
+  width: 60vw; /* responsivo */
+  max-width: 300px; 
 }
 
-#jar-body, .jar-lid {
-  width: 200px; /* Ajusta según el tamaño de tus SVGs */
+#jar-body {
+  width: 100%;
+  display: block;
 }
 
-.jar-lid {
+#jar-lid {
   position: absolute;
-  top: 0;
+  top: -10%;
   left: 50%;
   transform: translateX(-50%);
+  width: 80%;
   cursor: pointer;
-  transition: transform 0.5s;
+  z-index: 2;
 }
 
-/* Animación de palpitar */
-@keyframes pulse {
-  0% { transform: translateX(-50%) scale(1); }
-  50% { transform: translateX(-50%) scale(1.05); }
-  100% { transform: translateX(-50%) scale(1); }
+/* Imagen de la invitación */
+.invitation-img {
+  max-width: 90%;
+  height: auto;
 }
 
-.pulse {
-  animation: pulse 1.5s infinite;
-}
-
+/* Ocultar bloques */
 .hidden {
-  opacity: 0;
-  transition: opacity 0.8s;
+  display: none;
 }
