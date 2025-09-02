@@ -1,102 +1,55 @@
-/* Fondo degradado pastel con prefijos para navegadores */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #bbdefb; /* Fallback para navegadores que no soportan degradado */
-  background: -webkit-linear-gradient(top, #64b5f6, #fff176); /* Chrome 10-25, Safari 5.1-6 - Azul a Amarillo */
-  background: linear-gradient(to bottom, #64b5f6, #fff176); /* Standard syntax - Azul a Amarillo */
-  -webkit-font-smoothing: antialiased; /* Mejora el renderizado de texto en Chrome */
-  -moz-osx-font-smoothing: grayscale; /* Mejora el renderizado en Firefox */
-  overflow-x: hidden;
-}
-
-/* Bloques de la página */
-.block {
-  min-height: 100vh; /* cada bloque ocupa toda la pantalla */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
-  text-align: center;
-  padding: 20px;
-}
-
-/* Contenedor del frasco */
-.jar-container {
-  position: relative;
-  width: 70vw;       /* ancho relativo para móviles */
-  max-width: 320px;  /* límite en pantallas grandes */
-  margin: auto;
-  -webkit-perspective: 1000px; /* Mejora renderizado 3D en Chrome/Safari */
-  perspective: 1000px;
-}
-
-#jar-body {
-  width: 100%;
-  height: auto;
-  display: block;
-  -webkit-backface-visibility: hidden; /* Previene parpadeo en Chrome */
-  backface-visibility: hidden;
-  -webkit-transform: translateZ(0); /* Acelera el renderizado en Chrome */
-  transform: translateZ(0);
-  image-rendering: -webkit-optimize-contrast; /* Mejora calidad de imagen en Chrome */
-  image-rendering: crisp-edges;
-}
-
-#jar-lid {
-  position: absolute;
-  top: -8%;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-  transform: translateX(-50%);
-  width: 90%;
-  height: auto;
-  cursor: pointer;
-  z-index: 2;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -webkit-transform: translateX(-50%) translateZ(0);
-  transform: translateX(-50%) translateZ(0);
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
-}
-
-/* Imagen de la invitación */
-.invitation-img {
-  max-width: 90%;
-  max-height: 90vh;
-  height: auto;
-  display: block;
-  margin: auto;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-}
-
-/* Ocultar bloques */
-.hidden {
-  display: none !important;
-}
-
-/* Animaciones para mejor rendimiento */
-.animated-element {
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  will-change: transform, opacity;
-}
-
-/* Media queries para diferentes dispositivos */
-@media (max-width: 768px) {
-  .jar-container {
-    width: 85vw;
-  }
-}
-
-@media (max-width: 480px) {
-  .jar-container {
-    width: 95vw;
-  }
+document.addEventListener('DOMContentLoaded', () => {
+  const jarLid = document.getElementById('jar-lid');
+  const jarBody = document.getElementById('jar-body');
+  const blockIntro = document.getElementById('block-intro');
+  const blockInvitation = document.getElementById('block-invitation');
   
-  #jar-lid {
-    top: -5%;
+  // Forzar repintado inicial para Chrome
+  setTimeout(() => {
+    jarBody.style.display = 'none';
+    jarBody.offsetHeight; // Trigger reflow
+    jarBody.style.display = 'block';
+  }, 100);
+
+  jarLid.addEventListener('click', () => {
+    // Mejorar rendimiento preparando elementos para animación
+    jarLid.style.willChange = 'transform';
+    jarBody.style.willChange = 'transform, opacity';
+    
+    // Animar tapa hacia arriba
+    gsap.to(jarLid, {
+      y: -200,
+      duration: 1.2,
+      ease: "power2.out",
+      onComplete: () => {
+        jarLid.style.willChange = 'auto';
+      }
+    });
+
+    // Animar frasco hacia abajo y desvanecer
+    gsap.to(jarBody, {
+      y: 200,
+      opacity: 0,
+      duration: 1.5,
+      ease: "power2.in",
+      onComplete: () => {
+        jarBody.style.willChange = 'auto';
+        // Ocultar bloque 1
+        blockIntro.classList.add('hidden');
+        // Mostrar bloque 2 (invitación)
+        blockInvitation.classList.remove('hidden');
+        gsap.fromTo(blockInvitation, 
+          { opacity: 0, y: 20 }, 
+          { opacity: 1, y: 0, duration: 1.2 }
+        );
+      }
+    });
+  });
+  
+  // Detectar Chrome específicamente para aplicar mejoras adicionales
+  const isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+  if (isChrome) {
+    document.body.classList.add('chrome-browser');
+    // Aplicar estilos específicos para Chrome si es necesario
   }
-}
+});
