@@ -37,15 +37,16 @@ body {
   display: block;
   -webkit-backface-visibility: hidden; /* Previene parpadeo en Chrome */
   backface-visibility: hidden;
-  -webkit-transform: translateZ(0); /* Acelera el renderizado en Chrome */
-  transform: translateZ(0);
+  -webkit-transform: translateZ(0) translateX(-35%); /* Centrar el frasco */
+  transform: translateZ(0) translateX(-35%); /* Centrar el frasco */
   image-rendering: -webkit-optimize-contrast; /* Mejora calidad de imagen en Chrome */
   image-rendering: crisp-edges;
+  margin-left: 50%; /* Ayuda al centrado */
 }
 
 #jar-lid {
   position: absolute;
-  top: 0%;
+  top: 152px; /* Bajamos la tapa 152px desde la parte superior */
   left: 50%;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
@@ -97,10 +98,6 @@ body {
   }
   
   #jar-lid {
-    top: -5%;
+    top: 100px; /* Ajuste para móviles */
   }
 }
-
-
-
-
