@@ -2,9 +2,9 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #fff9c4; /* Fallback para navegadores que no soportan degradado */
-  background: -webkit-linear-gradient(top, #fff9c4, #bbdefb); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to bottom, #fff9c4, #bbdefb); /* Standard syntax */
+  background: #bbdefb; /* Fallback para navegadores que no soportan degradado */
+  background: -webkit-linear-gradient(top, #64b5f6, #fff176); /* Chrome 10-25, Safari 5.1-6 - Azul a Amarillo */
+  background: linear-gradient(to bottom, #64b5f6, #fff176); /* Standard syntax - Azul a Amarillo */
   -webkit-font-smoothing: antialiased; /* Mejora el renderizado de texto en Chrome */
   -moz-osx-font-smoothing: grayscale; /* Mejora el renderizado en Firefox */
   overflow-x: hidden;
