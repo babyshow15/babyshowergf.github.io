@@ -32,7 +32,7 @@ body {
 }
 
 #jar-body {
-  width: 150%;
+  width: 170%;
   height: auto;
   display: block;
   -webkit-backface-visibility: hidden; /* Previene parpadeo en Chrome */
@@ -45,11 +45,11 @@ body {
 
 #jar-lid {
   position: absolute;
-  top: -2%;
+  top: 9%;
   left: 50%;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
-  width: 140%;
+  width: 160%;
   height: auto;
   cursor: pointer;
   z-index: 2;
@@ -100,5 +100,6 @@ body {
     top: -5%;
   }
 }
+
 
 
