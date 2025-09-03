@@ -24,33 +24,32 @@ body {
 /* Contenedor del frasco */
 .jar-container {
   position: relative;
-  width: 70vw;       /* ancho relativo para móviles */
-  max-width: 320px;  /* límite en pantallas grandes */
+  width: 80vmin; /* Usamos vmin para adaptarse mejor */
+  max-width: 400px; /* Tamaño máximo aumentado */
   margin: auto;
-  -webkit-perspective: 1000px; /* Mejora renderizado 3D en Chrome/Safari */
+  -webkit-perspective: 1000px;
   perspective: 1000px;
 }
 
 #jar-body {
-  width: 170%;
+  width: 100%;
   height: auto;
   display: block;
-  -webkit-backface-visibility: hidden; /* Previene parpadeo en Chrome */
+  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  -webkit-transform: translateZ(0) translateX(-35%); /* Centrar el frasco */
-  transform: translateZ(0) translateX(-35%); /* Centrar el frasco */
-  image-rendering: -webkit-optimize-contrast; /* Mejora calidad de imagen en Chrome */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
-  margin-left: 50%; /* Ayuda al centrado */
 }
 
 #jar-lid {
   position: absolute;
-  top: 152px; /* Bajamos la tapa 152px desde la parte superior */
+  top: -18%; /* Posición relativa para adaptarse */
   left: 50%;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
-  width: 160%;
+  width: 95%; /* Tamaño proporcional al frasco */
   height: auto;
   cursor: pointer;
   z-index: 2;
@@ -88,16 +87,39 @@ body {
 /* Media queries para diferentes dispositivos */
 @media (max-width: 768px) {
   .jar-container {
-    width: 85vw;
+    width: 70vmin; /* Más pequeño en tablets */
+  }
+  
+  #jar-lid {
+    top: -15%;
   }
 }
 
 @media (max-width: 480px) {
   .jar-container {
-    width: 95vw;
+    width: 80vmin; /* Aprovechar mejor el espacio en móviles */
+    max-width: 300px;
   }
   
   #jar-lid {
-    top: 100px; /* Ajuste para móviles */
+    top: -12%;
+    width: 90%;
+  }
+}
+
+/* Para dispositivos muy altos o muy anchos */
+@media (min-height: 1000px) {
+  .jar-container {
+    max-width: 350px;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 500px) {
+  .jar-container {
+    width: 50vmin; /* En modo horizontal, usar más ancho que alto */
+  }
+  
+  .block {
+    padding: 10px;
   }
 }
