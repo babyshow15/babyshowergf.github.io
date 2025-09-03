@@ -1,37 +1,192 @@
-/* Cuenta regresiva - MISMO ANCHO QUE LA IMAGEN */
-.countdown-container {
-  margin-bottom: 20px;
+/* Agregar la fuente de Google */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+
+/* Fondo degradado pastel con prefijos para navegadores */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #bbdefb;
+  background: -webkit-linear-gradient(top, #64b5f6, #fff176);
+  background: linear-gradient(to bottom, #64b5f6, #fff176);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Bloques de la página - AJUSTADO para eliminar espacio vacío */
+.block {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Cambiado de center a flex-start */
+  align-items: center;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 20px;
+  padding-top: 40px; /* Reducido el padding superior */
+}
+
+#block-invitation {
+  justify-content: flex-start;
+  padding-top: 30px;
+}
+
+/* Contenedor de instrucciones */
+.instruction-container {
+  margin-bottom: 30px; /* Reducido el margen */
+  text-align: center;
+}
+
+.instruction-text {
+  font-family: 'Dancing Script', cursive;
+  font-size: 32px;
+  font-weight: 700;
+  color: #5d4037;
+  margin-bottom: 15px; /* Reducido el margen */
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.arrows {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.arrow {
+  font-size: 36px;
+  color: #5d4037;
+  animation: bounce 1.5s infinite;
+  transform: rotate(90deg);
+}
+
+.arrow:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.arrow:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+/* Contenedor del frasco */
+.jar-container {
+  position: relative;
+  width: 80vmin;
+  max-width: 400px;
+  margin: auto;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  animation: pulse 2s infinite;
+}
+
+#jar-body {
   width: 100%;
-  max-width: 90%; /* Mismo ancho máximo que la imagen */
+  height: auto;
+  display: block;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+#jar-lid {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  width: 95%;
+  height: auto;
+  cursor: pointer;
+  z-index: 2;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translateX(-50%) translateZ(0);
+  transform: translateX(-50%) translateZ(0);
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* Cuenta regresiva - MÁS PEQUEÑA */
+.countdown-container {
+  margin-bottom: 20px; /* Reducido el margen */
+  width: 100%;
+  max-width: 600px;
 }
 
 .countdown {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 8px;
+  gap: 8px; /* Reducido el gap */
   background: rgba(255, 255, 255, 0.9);
-  padding: 12px;
+  padding: 12px; /* Reducido el padding */
   border-radius: 15px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 100%; /* Ocupa todo el ancho del contenedor */
+  max-width: 500px; /* Mismo ancho máximo que el botón */
   margin: 0 auto;
 }
 
-/* Botón de ubicación - MISMO ANCHO QUE LA IMAGEN */
+.time-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 45px; /* Reducido el ancho mínimo */
+}
+
+.time-value {
+  font-size: 1.5rem; /* Reducido el tamaño de fuente */
+  font-weight: bold;
+  color: #64b5f6;
+  background: #fff;
+  padding: 8px; /* Reducido el padding */
+  border-radius: 10px;
+  min-width: 45px; /* Reducido el ancho mínimo */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.time-value::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #64b5f6;
+  animation: flip 1s ease-in-out infinite;
+}
+
+.time-label {
+  font-size: 0.7rem; /* Reducido el tamaño de fuente */
+  color: #5d4037;
+  margin-top: 5px; /* Reducido el margen */
+  font-weight: 600;
+}
+
+.separator {
+  font-size: 1.2rem; /* Reducido el tamaño de fuente */
+  font-weight: bold;
+  color: #5d4037;
+  margin: 0 2px; /* Reducido el margen */
+}
+
+/* Botón de ubicación */
 .location-container {
-  margin-top: 20px;
+  margin-top: 20px; /* Reducido el margen */
   width: 100%;
-  max-width: 90%; /* Mismo ancho máximo que la imagen */
+  max-width: 500px; /* Establecido ancho máximo */
 }
 
 .location-button {
   background: linear-gradient(135deg, #64b5f6, #42a5f5);
   color: white;
   border: none;
-  padding: 12px 25px;
-  font-size: 1rem;
+  padding: 12px 25px; /* Ajustado el padding */
+  font-size: 1rem; /* Reducido el tamaño de fuente */
   font-weight: 600;
   border-radius: 50px;
   cursor: pointer;
@@ -39,42 +194,152 @@
   transition: all 0.3s ease;
   font-family: 'Dancing Script', cursive;
   width: 100%;
-  max-width: 100%; /* Ocupa todo el ancho del contenedor */
+  max-width: 500px; /* Mismo ancho máximo que la cuenta regresiva */
+}
+
+.location-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(33, 150, 243, 0.6);
+  background: linear-gradient(135deg, #42a5f5, #2196f3);
+}
+
+.location-button:active {
+  transform: translateY(0);
 }
 
 /* Imagen de la invitación */
 .invitation-img {
-  max-width: 90%; /* Este es el ancho de referencia */
-  max-height: 45vh;
+  max-width: 90%;
+  max-height: 45vh; /* Reducida la altura máxima */
   height: auto;
   display: block;
-  margin: 15px auto;
+  margin: 15px auto; /* Reducido el margen */
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
   border-radius: 15px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Ajustes para dispositivos móviles */
+/* Animaciones */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: rotate(90deg) translateY(0); }
+  50% { transform: rotate(90deg) translateY(-10px); }
+}
+
+@keyframes flip {
+  0% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: rotateX(90deg);
+    opacity: 0;
+  }
+  100% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+/* Ocultar bloques */
+.hidden {
+  display: none !important;
+}
+
+/* Media queries para diferentes dispositivos */
 @media (max-width: 768px) {
+  .jar-container {
+    width: 70vmin;
+  }
+  
+  #jar-lid {
+    top: 25px;
+  }
+  
+  .instruction-text {
+    font-size: 28px;
+  }
+  
+  .arrow {
+    font-size: 32px;
+  }
+  
   .countdown {
     gap: 6px;
     padding: 10px;
-    max-width: 100%;
+    max-width: 400px;
+  }
+  
+  .time-value {
+    font-size: 1.3rem;
+    min-width: 40px;
+    padding: 6px;
+  }
+  
+  .time-unit {
+    min-width: 40px;
+  }
+  
+  .time-label {
+    font-size: 0.6rem;
+  }
+  
+  .separator {
+    font-size: 1rem;
   }
   
   .location-button {
     padding: 10px 20px;
     font-size: 0.9rem;
-    max-width: 100%;
+    max-width: 400px;
+  }
+  
+  .block {
+    padding-top: 30px;
+  }
+  
+  #block-invitation {
+    padding-top: 20px;
   }
 }
 
 @media (max-width: 480px) {
+  .jar-container {
+    width: 80vmin;
+    max-width: 300px;
+  }
+  
+  #jar-lid {
+    top: 20px;
+    width: 90%;
+  }
+  
+  .instruction-text {
+    font-size: 24px;
+  }
+  
+  .arrow {
+    font-size: 28px;
+  }
+  
+  .instruction-container {
+    margin-bottom: 20px;
+  }
+  
+  .arrows {
+    gap: 20px;
+  }
+  
   .countdown {
     gap: 4px;
     padding: 8px;
-    max-width: 100%;
+    max-width: 350px;
   }
   
   .time-value {
@@ -87,62 +352,100 @@
     min-width: 35px;
   }
   
-  .location-button {
-    padding: 8px 16px;
-    font-size: 0.85rem;
-    max-width: 100%;
-  }
-  
-  /* Ajustar elementos para pantallas muy pequeñas */
-  .countdown-container,
-  .location-container {
-    max-width: 95%; /* Un poco más de margen en móviles */
-  }
-  
-  .invitation-img {
-    max-width: 95%; /* Imagen un poco más ancha en móviles */
-  }
-}
-
-/* Para tablets en modo horizontal */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .countdown-container,
-  .location-container {
-    max-width: 85%; /* Un poco más ancho en tablets */
-  }
-  
-  .invitation-img {
-    max-width: 85%; /* Imagen un poco más ancha en tablets */
-  }
-}
-
-/* Para pantallas grandes */
-@media (min-width: 1025px) {
-  .countdown-container,
-  .location-container {
-    max-width: 80%; /* Un poco más ancho en desktop */
-  }
-  
-  .invitation-img {
-    max-width: 80%; /* Imagen un poco más ancha en desktop */
-  }
-  
-  .time-value {
-    font-size: 1.8rem; /* Un poco más grande en desktop */
-    min-width: 50px;
-    padding: 10px;
-  }
-  
   .time-label {
-    font-size: 0.8rem;
+    font-size: 0.55rem;
+    margin-top: 3px;
   }
   
   .separator {
-    font-size: 1.5rem;
+    font-size: 0.9rem;
+    margin: 0 1px;
   }
   
   .location-button {
-    font-size: 1.1rem;
-    padding: 14px 28px;
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    max-width: 350px;
+  }
+  
+  .invitation-img {
+    max-height: 35vh;
+    margin: 10px auto;
+  }
+  
+  .block {
+    padding: 15px;
+    padding-top: 25px;
+  }
+  
+  #block-invitation {
+    padding-top: 15px;
+  }
+  
+  .countdown-container {
+    margin-bottom: 15px;
+  }
+  
+  .location-container {
+    margin-top: 15px;
+  }
+}
+
+/* Para dispositivos muy altos o muy anchos */
+@media (min-height: 1000px) {
+  .jar-container {
+    max-width: 350px;
+  }
+  
+  .instruction-text {
+    font-size: 36px;
+  }
+  
+  .arrow {
+    font-size: 40px;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 500px) {
+  .jar-container {
+    width: 50vmin;
+  }
+  
+  .block {
+    padding: 10px;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 20px;
+  }
+  
+  .instruction-container {
+    margin-bottom: 0;
+    margin-right: 15px;
+  }
+  
+  #jar-lid {
+    top: 15px;
+  }
+  
+  .instruction-text {
+    font-size: 20px;
+  }
+  
+  .arrow {
+    font-size: 24px;
+  }
+  
+  .countdown-container {
+    margin-bottom: 10px;
+  }
+  
+  .location-container {
+    margin-top: 10px;
+  }
+  
+  #block-invitation {
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 15px;
   }
 }
