@@ -5,27 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Invitación Baby Shower</title>
   <link rel="stylesheet" href="styles.css">
+  <!-- Agregar Google Font para estilo carta -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <!-- Bloque 1: Intro con frasco -->
   <section class="block" id="block-intro">
+    <div class="instruction-container">
+      <p class="instruction-text">Toca la miel para ver la invitación</p>
+      <div class="arrows">
+        <div class="arrow">➤</div>
+        <div class="arrow">➤</div>
+        <div class="arrow">➤</div>
+      </div>
+    </div>
     <div class="jar-container">
       <img id="jar-body" src="./media/hunnySVG_BOULD.svg" alt="Frasco de miel" decoding="async" loading="eager">
       <img id="jar-lid" src="./media/hunnySVG_TAPA.svg" alt="Tapa del frasco">
     </div>
   </section>
 
-  <!-- Bloque 2: Invitación -->
+  <!-- Resto del código se mantiene igual -->
   <section class="block hidden" id="block-invitation">
     <img src="./media/prueba_abre.svg" alt="Invitación" class="invitation-img">
   </section>
 
-  <!-- Bloque 3: Espacio para futuros elementos -->
   <section class="block hidden" id="block-extra">
     <p>Aquí puedes poner más cosas después (texto, botones, música, etc.)</p>
   </section>
 
-  <!-- GSAP -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
   <script src="script.js"></script>
 </body>
