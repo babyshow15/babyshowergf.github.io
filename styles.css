@@ -17,7 +17,7 @@ body {
 .block {
   min-height: 100vh;
   display: flex;
-  flex-direction: column; /* Cambiado a columna para texto arriba */
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
@@ -33,7 +33,7 @@ body {
 
 .instruction-text {
   font-family: 'Dancing Script', cursive;
-  font-size: 32px; /* Aumentado de 24px a 32px */
+  font-size: 32px;
   font-weight: 700;
   color: #5d4037;
   margin-bottom: 20px;
@@ -47,10 +47,10 @@ body {
 }
 
 .arrow {
-  font-size: 36px; /* Aumentado de 28px a 36px */
+  font-size: 36px;
   color: #5d4037;
   animation: bounce 1.5s infinite;
-  transform: rotate(90deg); /* Flechas apuntando hacia abajo */
+  transform: rotate(90deg);
 }
 
 .arrow:nth-child(2) {
@@ -102,56 +102,143 @@ body {
   image-rendering: crisp-edges;
 }
 
+/* Cuenta regresiva */
+.countdown-container {
+  margin-bottom: 30px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.time-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 70px;
+}
+
+.time-value {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #64b5f6;
+  background: #fff;
+  padding: 15px;
+  border-radius: 15px;
+  min-width: 70px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.time-value::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #64b5f6;
+  animation: flip 1s ease-in-out infinite;
+}
+
+.time-label {
+  font-size: 0.9rem;
+  color: #5d4037;
+  margin-top: 8px;
+  font-weight: 600;
+}
+
+.separator {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #5d4037;
+  margin: 0 5px;
+}
+
+/* Botón de ubicación */
+.location-container {
+  margin-top: 30px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.location-button {
+  background: linear-gradient(135deg, #64b5f6, #42a5f5);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(33, 150, 243, 0.4);
+  transition: all 0.3s ease;
+  font-family: 'Dancing Script', cursive;
+}
+
+.location-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(33, 150, 243, 0.6);
+  background: linear-gradient(135deg, #42a5f5, #2196f3);
+}
+
+.location-button:active {
+  transform: translateY(0);
+}
+
+/* Imagen de la invitación */
+.invitation-img {
+  max-width: 90%;
+  max-height: 50vh;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
 /* Animaciones */
 @keyframes pulse {
   0% { transform: scale(1); }
   50% { transform: scale(1.05); }
   100% { transform: scale(1); }
 }
-/* Ocultar el elemento de audio visualmente */
-#background-music {
-  position: absolute;
-  left: -9999px;
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-/* Ocultar completamente el elemento de audio */
-#background-music {
-  display: none !important;
-  visibility: hidden !important;
-  width: 0 !important;
-  height: 0 !important;
-  position: absolute !important;
-  left: -9999px !important;
-}
 
 @keyframes bounce {
-  0%, 100% { transform: rotate(90deg) translateY(0); } /* Mantener rotación */
-  50% { transform: rotate(90deg) translateY(-10px); } /* Mantener rotación */
+  0%, 100% { transform: rotate(90deg) translateY(0); }
+  50% { transform: rotate(90deg) translateY(-10px); }
 }
 
-/* Imagen de la invitación */
-.invitation-img {
-  max-width: 90%;
-  max-height: 90vh;
-  height: auto;
-  display: block;
-  margin: auto;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
+@keyframes flip {
+  0% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: rotateX(90deg);
+    opacity: 0;
+  }
+  100% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
 }
 
 /* Ocultar bloques */
 .hidden {
   display: none !important;
-}
-
-/* Animaciones para mejor rendimiento */
-.animated-element {
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  will-change: transform, opacity;
 }
 
 /* Media queries para diferentes dispositivos */
@@ -165,11 +252,35 @@ body {
   }
   
   .instruction-text {
-    font-size: 28px; /* Aumentado para tablet */
+    font-size: 28px;
   }
   
   .arrow {
-    font-size: 32px; /* Aumentado para tablet */
+    font-size: 32px;
+  }
+  
+  .countdown {
+    gap: 10px;
+    padding: 15px;
+  }
+  
+  .time-value {
+    font-size: 2rem;
+    min-width: 60px;
+    padding: 12px;
+  }
+  
+  .time-unit {
+    min-width: 60px;
+  }
+  
+  .separator {
+    font-size: 1.5rem;
+  }
+  
+  .location-button {
+    padding: 12px 25px;
+    font-size: 1.1rem;
   }
 }
 
@@ -185,11 +296,11 @@ body {
   }
   
   .instruction-text {
-    font-size: 26px; /* Aumentado para móvil */
+    font-size: 26px;
   }
   
   .arrow {
-    font-size: 28px; /* Aumentado para móvil */
+    font-size: 28px;
   }
   
   .instruction-container {
@@ -198,6 +309,40 @@ body {
   
   .arrows {
     gap: 20px;
+  }
+  
+  .countdown {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 12px;
+  }
+  
+  .time-value {
+    font-size: 1.5rem;
+    min-width: 50px;
+    padding: 10px;
+  }
+  
+  .time-unit {
+    min-width: 50px;
+  }
+  
+  .time-label {
+    font-size: 0.8rem;
+  }
+  
+  .separator {
+    font-size: 1.2rem;
+    margin: 0 3px;
+  }
+  
+  .location-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+  
+  .invitation-img {
+    max-height: 40vh;
   }
 }
 
@@ -208,11 +353,11 @@ body {
   }
   
   .instruction-text {
-    font-size: 36px; /* Más grande en pantallas grandes */
+    font-size: 36px;
   }
   
   .arrow {
-    font-size: 40px; /* Más grande en pantallas grandes */
+    font-size: 40px;
   }
 }
 
@@ -223,7 +368,7 @@ body {
   
   .block {
     padding: 10px;
-    flex-direction: row; /* Cambia a fila en horizontal */
+    flex-direction: row;
   }
   
   .instruction-container {
@@ -236,12 +381,18 @@ body {
   }
   
   .instruction-text {
-    font-size: 24px; /* Ajuste para modo horizontal */
+    font-size: 24px;
   }
   
   .arrow {
-    font-size: 28px; /* Ajuste para modo horizontal */
+    font-size: 28px;
+  }
+  
+  .countdown-container {
+    margin-bottom: 15px;
+  }
+  
+  .location-container {
+    margin-top: 15px;
   }
 }
-
-
