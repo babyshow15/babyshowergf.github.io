@@ -1,3 +1,6 @@
+/* Agregar la fuente de Google */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+
 /* Fondo degradado pastel con prefijos para navegadores */
 body {
   margin: 0;
@@ -14,11 +17,46 @@ body {
 .block {
   min-height: 100vh;
   display: flex;
+  flex-direction: column; /* Cambiado a columna para texto arriba */
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
   text-align: center;
   padding: 20px;
+}
+
+/* Contenedor de instrucciones */
+.instruction-container {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.instruction-text {
+  font-family: 'Dancing Script', cursive;
+  font-size: 24px;
+  color: #5d4037;
+  margin-bottom: 15px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.arrows {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.arrow {
+  font-size: 28px;
+  color: #5d4037;
+  animation: bounce 1.5s infinite;
+}
+
+.arrow:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.arrow:nth-child(3) {
+  animation-delay: 0.6s;
 }
 
 /* Contenedor del frasco */
@@ -29,6 +67,7 @@ body {
   margin: auto;
   -webkit-perspective: 1000px;
   perspective: 1000px;
+  animation: pulse 2s infinite; /* Animación de palpitar */
 }
 
 #jar-body {
@@ -45,7 +84,7 @@ body {
 
 #jar-lid {
   position: absolute;
-  top: 30px; /* Valor para desktop */
+  top: 30px;
   left: 50%;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
@@ -59,6 +98,18 @@ body {
   transform: translateX(-50%) translateZ(0);
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
+}
+
+/* Animaciones */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
 /* Imagen de la invitación */
@@ -91,7 +142,15 @@ body {
   }
   
   #jar-lid {
-    top: 25px; /* Ajuste para tablets */
+    top: 25px;
+  }
+  
+  .instruction-text {
+    font-size: 22px;
+  }
+  
+  .arrow {
+    font-size: 24px;
   }
 }
 
@@ -102,8 +161,20 @@ body {
   }
   
   #jar-lid {
-    top: 20px; /* Ajuste para móviles */
+    top: 20px;
     width: 90%;
+  }
+  
+  .instruction-text {
+    font-size: 20px;
+  }
+  
+  .arrow {
+    font-size: 20px;
+  }
+  
+  .instruction-container {
+    margin-bottom: 30px;
   }
 }
 
@@ -121,9 +192,15 @@ body {
   
   .block {
     padding: 10px;
+    flex-direction: row; /* Cambia a fila en horizontal */
+  }
+  
+  .instruction-container {
+    margin-bottom: 0;
+    margin-right: 20px;
   }
   
   #jar-lid {
-    top: 15px; /* Ajuste adicional para móviles en horizontal */
+    top: 15px;
   }
 }
