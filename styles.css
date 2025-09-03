@@ -45,7 +45,7 @@ body {
 
 #jar-lid {
   position: absolute;
-  top: -18%; /* Posición relativa para adaptarse */
+  top: -18% +100px; /* Posición relativa para adaptarse */
   left: 50%;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
@@ -123,3 +123,4 @@ body {
     padding: 10px;
   }
 }
+
