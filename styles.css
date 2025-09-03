@@ -116,6 +116,15 @@ body {
   width: 0;
   height: 0;
 }
+/* Ocultar completamente el elemento de audio */
+#background-music {
+  display: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+  position: absolute !important;
+  left: -9999px !important;
+}
 
 @keyframes bounce {
   0%, 100% { transform: rotate(90deg) translateY(0); } /* Mantener rotación */
@@ -234,4 +243,5 @@ body {
     font-size: 28px; /* Ajuste para modo horizontal */
   }
 }
+
 
