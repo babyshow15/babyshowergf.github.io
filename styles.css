@@ -2,17 +2,17 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #bbdefb; /* Fallback para navegadores que no soportan degradado */
-  background: -webkit-linear-gradient(top, #64b5f6, #fff176); /* Chrome 10-25, Safari 5.1-6 - Azul a Amarillo */
-  background: linear-gradient(to bottom, #64b5f6, #fff176); /* Standard syntax - Azul a Amarillo */
-  -webkit-font-smoothing: antialiased; /* Mejora el renderizado de texto en Chrome */
-  -moz-osx-font-smoothing: grayscale; /* Mejora el renderizado en Firefox */
+  background: #bbdefb;
+  background: -webkit-linear-gradient(top, #64b5f6, #fff176);
+  background: linear-gradient(to bottom, #64b5f6, #fff176);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
 
 /* Bloques de la página */
 .block {
-  min-height: 100vh; /* cada bloque ocupa toda la pantalla */
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,8 +24,8 @@ body {
 /* Contenedor del frasco */
 .jar-container {
   position: relative;
-  width: 80vmin; /* Usamos vmin para adaptarse mejor */
-  max-width: 400px; /* Tamaño máximo aumentado */
+  width: 80vmin;
+  max-width: 400px;
   margin: auto;
   -webkit-perspective: 1000px;
   perspective: 1000px;
@@ -45,11 +45,11 @@ body {
 
 #jar-lid {
   position: absolute;
-  top: 30px; /* Posición relativa para adaptarse */
+  top: 30px; /* Valor para desktop */
   left: 50%;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
-  width: 95%; /* Tamaño proporcional al frasco */
+  width: 95%;
   height: auto;
   cursor: pointer;
   z-index: 2;
@@ -87,22 +87,22 @@ body {
 /* Media queries para diferentes dispositivos */
 @media (max-width: 768px) {
   .jar-container {
-    width: 70vmin; /* Más pequeño en tablets */
+    width: 70vmin;
   }
   
   #jar-lid {
-    top: -15%;
+    top: 25px; /* Ajuste para tablets */
   }
 }
 
 @media (max-width: 480px) {
   .jar-container {
-    width: 80vmin; /* Aprovechar mejor el espacio en móviles */
+    width: 80vmin;
     max-width: 300px;
   }
   
   #jar-lid {
-    top: -12%;
+    top: 20px; /* Ajuste para móviles */
     width: 90%;
   }
 }
@@ -116,13 +116,14 @@ body {
 
 @media (orientation: landscape) and (max-height: 500px) {
   .jar-container {
-    width: 50vmin; /* En modo horizontal, usar más ancho que alto */
+    width: 50vmin;
   }
   
   .block {
     padding: 10px;
   }
+  
+  #jar-lid {
+    top: 15px; /* Ajuste adicional para móviles en horizontal */
+  }
 }
-
-
-
