@@ -13,21 +13,27 @@ body {
   overflow-x: hidden;
 }
 
-/* Bloques de la página */
+/* Bloques de la página - AJUSTADO para eliminar espacio vacío */
 .block {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start; /* Cambiado de center a flex-start */
   align-items: center;
   box-sizing: border-box;
   text-align: center;
   padding: 20px;
+  padding-top: 40px; /* Reducido el padding superior */
+}
+
+#block-invitation {
+  justify-content: flex-start;
+  padding-top: 30px;
 }
 
 /* Contenedor de instrucciones */
 .instruction-container {
-  margin-bottom: 40px;
+  margin-bottom: 30px; /* Reducido el margen */
   text-align: center;
 }
 
@@ -36,7 +42,7 @@ body {
   font-size: 32px;
   font-weight: 700;
   color: #5d4037;
-  margin-bottom: 20px;
+  margin-bottom: 15px; /* Reducido el margen */
   text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
@@ -102,9 +108,9 @@ body {
   image-rendering: crisp-edges;
 }
 
-/* Cuenta regresiva */
+/* Cuenta regresiva - MÁS PEQUEÑA */
 .countdown-container {
-  margin-bottom: 30px;
+  margin-bottom: 20px; /* Reducido el margen */
   width: 100%;
   max-width: 600px;
 }
@@ -113,29 +119,32 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 15px;
+  gap: 8px; /* Reducido el gap */
   background: rgba(255, 255, 255, 0.9);
-  padding: 20px;
-  border-radius: 20px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  padding: 12px; /* Reducido el padding */
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px; /* Mismo ancho máximo que el botón */
+  margin: 0 auto;
 }
 
 .time-unit {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 70px;
+  min-width: 45px; /* Reducido el ancho mínimo */
 }
 
 .time-value {
-  font-size: 2.5rem;
+  font-size: 1.5rem; /* Reducido el tamaño de fuente */
   font-weight: bold;
   color: #64b5f6;
   background: #fff;
-  padding: 15px;
-  border-radius: 15px;
-  min-width: 70px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 8px; /* Reducido el padding */
+  border-radius: 10px;
+  min-width: 45px; /* Reducido el ancho mínimo */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: hidden;
 }
@@ -146,49 +155,51 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  height: 2px;
+  height: 1px;
   background: #64b5f6;
   animation: flip 1s ease-in-out infinite;
 }
 
 .time-label {
-  font-size: 0.9rem;
+  font-size: 0.7rem; /* Reducido el tamaño de fuente */
   color: #5d4037;
-  margin-top: 8px;
+  margin-top: 5px; /* Reducido el margen */
   font-weight: 600;
 }
 
 .separator {
-  font-size: 2rem;
+  font-size: 1.2rem; /* Reducido el tamaño de fuente */
   font-weight: bold;
   color: #5d4037;
-  margin: 0 5px;
+  margin: 0 2px; /* Reducido el margen */
 }
 
 /* Botón de ubicación */
 .location-container {
-  margin-top: 30px;
+  margin-top: 20px; /* Reducido el margen */
   width: 100%;
-  max-width: 600px;
+  max-width: 500px; /* Establecido ancho máximo */
 }
 
 .location-button {
   background: linear-gradient(135deg, #64b5f6, #42a5f5);
   color: white;
   border: none;
-  padding: 15px 30px;
-  font-size: 1.2rem;
+  padding: 12px 25px; /* Ajustado el padding */
+  font-size: 1rem; /* Reducido el tamaño de fuente */
   font-weight: 600;
   border-radius: 50px;
   cursor: pointer;
-  box-shadow: 0 6px 15px rgba(33, 150, 243, 0.4);
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.4);
   transition: all 0.3s ease;
   font-family: 'Dancing Script', cursive;
+  width: 100%;
+  max-width: 500px; /* Mismo ancho máximo que la cuenta regresiva */
 }
 
 .location-button:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(33, 150, 243, 0.6);
+  box-shadow: 0 6px 15px rgba(33, 150, 243, 0.6);
   background: linear-gradient(135deg, #42a5f5, #2196f3);
 }
 
@@ -199,14 +210,14 @@ body {
 /* Imagen de la invitación */
 .invitation-img {
   max-width: 90%;
-  max-height: 50vh;
+  max-height: 45vh; /* Reducida la altura máxima */
   height: auto;
   display: block;
-  margin: 20px auto;
+  margin: 15px auto; /* Reducido el margen */
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
   border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 /* Animaciones */
@@ -260,27 +271,41 @@ body {
   }
   
   .countdown {
-    gap: 10px;
-    padding: 15px;
+    gap: 6px;
+    padding: 10px;
+    max-width: 400px;
   }
   
   .time-value {
-    font-size: 2rem;
-    min-width: 60px;
-    padding: 12px;
+    font-size: 1.3rem;
+    min-width: 40px;
+    padding: 6px;
   }
   
   .time-unit {
-    min-width: 60px;
+    min-width: 40px;
+  }
+  
+  .time-label {
+    font-size: 0.6rem;
   }
   
   .separator {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
   
   .location-button {
-    padding: 12px 25px;
-    font-size: 1.1rem;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    max-width: 400px;
+  }
+  
+  .block {
+    padding-top: 30px;
+  }
+  
+  #block-invitation {
+    padding-top: 20px;
   }
 }
 
@@ -296,7 +321,7 @@ body {
   }
   
   .instruction-text {
-    font-size: 26px;
+    font-size: 24px;
   }
   
   .arrow {
@@ -304,7 +329,7 @@ body {
   }
   
   .instruction-container {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
   
   .arrows {
@@ -312,37 +337,57 @@ body {
   }
   
   .countdown {
-    flex-wrap: wrap;
-    gap: 8px;
-    padding: 12px;
+    gap: 4px;
+    padding: 8px;
+    max-width: 350px;
   }
   
   .time-value {
-    font-size: 1.5rem;
-    min-width: 50px;
-    padding: 10px;
+    font-size: 1.1rem;
+    min-width: 35px;
+    padding: 5px;
   }
   
   .time-unit {
-    min-width: 50px;
+    min-width: 35px;
   }
   
   .time-label {
-    font-size: 0.8rem;
+    font-size: 0.55rem;
+    margin-top: 3px;
   }
   
   .separator {
-    font-size: 1.2rem;
-    margin: 0 3px;
+    font-size: 0.9rem;
+    margin: 0 1px;
   }
   
   .location-button {
-    padding: 10px 20px;
-    font-size: 1rem;
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    max-width: 350px;
   }
   
   .invitation-img {
-    max-height: 40vh;
+    max-height: 35vh;
+    margin: 10px auto;
+  }
+  
+  .block {
+    padding: 15px;
+    padding-top: 25px;
+  }
+  
+  #block-invitation {
+    padding-top: 15px;
+  }
+  
+  .countdown-container {
+    margin-bottom: 15px;
+  }
+  
+  .location-container {
+    margin-top: 15px;
   }
 }
 
@@ -369,11 +414,13 @@ body {
   .block {
     padding: 10px;
     flex-direction: row;
+    justify-content: center;
+    padding-top: 20px;
   }
   
   .instruction-container {
     margin-bottom: 0;
-    margin-right: 20px;
+    margin-right: 15px;
   }
   
   #jar-lid {
@@ -381,18 +428,24 @@ body {
   }
   
   .instruction-text {
-    font-size: 24px;
+    font-size: 20px;
   }
   
   .arrow {
-    font-size: 28px;
+    font-size: 24px;
   }
   
   .countdown-container {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
   }
   
   .location-container {
-    margin-top: 15px;
+    margin-top: 10px;
+  }
+  
+  #block-invitation {
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 15px;
   }
 }
