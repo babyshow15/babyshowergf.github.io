@@ -510,3 +510,11 @@ body {
     max-width: 90%;
   }
 }
+
+.invitation-img {
+  height: 75vh;     /* siempre ocupa el 75% del alto visible */
+  width: auto;      /* ajusta el ancho automáticamente */
+  object-fit: contain; /* mantiene proporción sin recortar */
+  display: block;
+  margin: 0 auto;
+}
