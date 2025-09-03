@@ -33,22 +33,24 @@ body {
 
 .instruction-text {
   font-family: 'Dancing Script', cursive;
-  font-size: 24px;
+  font-size: 32px; /* Aumentado de 24px a 32px */
+  font-weight: 700;
   color: #5d4037;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
 .arrows {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 30px;
 }
 
 .arrow {
-  font-size: 28px;
+  font-size: 36px; /* Aumentado de 28px a 36px */
   color: #5d4037;
   animation: bounce 1.5s infinite;
+  transform: rotate(90deg); /* Flechas apuntando hacia abajo */
 }
 
 .arrow:nth-child(2) {
@@ -67,7 +69,7 @@ body {
   margin: auto;
   -webkit-perspective: 1000px;
   perspective: 1000px;
-  animation: pulse 2s infinite; /* Animación de palpitar */
+  animation: pulse 2s infinite;
 }
 
 #jar-body {
@@ -108,8 +110,8 @@ body {
 }
 
 @keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  0%, 100% { transform: rotate(90deg) translateY(0); } /* Mantener rotación */
+  50% { transform: rotate(90deg) translateY(-10px); } /* Mantener rotación */
 }
 
 /* Imagen de la invitación */
@@ -146,11 +148,11 @@ body {
   }
   
   .instruction-text {
-    font-size: 22px;
+    font-size: 28px; /* Aumentado para tablet */
   }
   
   .arrow {
-    font-size: 24px;
+    font-size: 32px; /* Aumentado para tablet */
   }
 }
 
@@ -166,15 +168,19 @@ body {
   }
   
   .instruction-text {
-    font-size: 20px;
+    font-size: 26px; /* Aumentado para móvil */
   }
   
   .arrow {
-    font-size: 20px;
+    font-size: 28px; /* Aumentado para móvil */
   }
   
   .instruction-container {
     margin-bottom: 30px;
+  }
+  
+  .arrows {
+    gap: 20px;
   }
 }
 
@@ -182,6 +188,14 @@ body {
 @media (min-height: 1000px) {
   .jar-container {
     max-width: 350px;
+  }
+  
+  .instruction-text {
+    font-size: 36px; /* Más grande en pantallas grandes */
+  }
+  
+  .arrow {
+    font-size: 40px; /* Más grande en pantallas grandes */
   }
 }
 
@@ -202,5 +216,13 @@ body {
   
   #jar-lid {
     top: 15px;
+  }
+  
+  .instruction-text {
+    font-size: 24px; /* Ajuste para modo horizontal */
+  }
+  
+  .arrow {
+    font-size: 28px; /* Ajuste para modo horizontal */
   }
 }
