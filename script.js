@@ -4,6 +4,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const blockIntro = document.getElementById('block-intro');
   const blockInvitation = document.getElementById('block-invitation');
   
+  // Agregar animación continua de palpitar
+  gsap.to('.jar-container', {
+    scale: 1.05,
+    duration: 1,
+    repeat: -1, // Repetir infinitamente
+    yoyo: true, // Ir y volver
+    ease: "sine.inOut"
+  });
   // Forzar repintado inicial para Chrome
   setTimeout(() => {
     jarBody.style.display = 'none';
@@ -53,3 +61,4 @@ document.addEventListener('DOMContentLoaded', () => {
     // Aplicar estilos específicos para Chrome si es necesario
   }
 });
+
