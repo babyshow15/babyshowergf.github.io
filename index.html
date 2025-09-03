@@ -31,9 +31,42 @@
     </div>
   </section>
 
-  <!-- Resto del código se mantiene igual -->
+  <!-- Bloque 2: Invitación con cuenta regresiva y ubicación -->
   <section class="block hidden" id="block-invitation">
+    <!-- Cuenta regresiva -->
+    <div class="countdown-container">
+      <div class="countdown">
+        <div class="time-unit">
+          <div class="time-value" id="days">00</div>
+          <div class="time-label">Días</div>
+        </div>
+        <div class="separator">:</div>
+        <div class="time-unit">
+          <div class="time-value" id="hours">00</div>
+          <div class="time-label">Horas</div>
+        </div>
+        <div class="separator">:</div>
+        <div class="time-unit">
+          <div class="time-value" id="minutes">00</div>
+          <div class="time-label">Minutos</div>
+        </div>
+        <div class="separator">:</div>
+        <div class="time-unit">
+          <div class="time-value" id="seconds">00</div>
+          <div class="time-label">Segundos</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Imagen de invitación -->
     <img src="./media/prueba_abre.svg" alt="Invitación" class="invitation-img">
+
+    <!-- Botón de ubicación -->
+    <div class="location-container">
+      <button class="location-button" onclick="window.open('https://www.google.com/maps/place/Doroteo+Arango+103,+Zona+A,+La+Toma+de+Zacatecas,+98057+Zacatecas,+Zac./@22.7700169,-102.6009082,18.26z/data=!4m6!3m5!1s0x86824e12d20c993d:0xa957f2f74a5da939!8m2!3d22.7702298!4d-102.5996413!16s%2Fg%2F11c5nzw3bh?entry=ttu&g_ep=EgoyMDI1MDgzMC4wIKXMDSoASAFQAw%3D%3D', '_blank')">
+        📍 Click para ver la ubicación
+      </button>
+    </div>
   </section>
 
   <section class="block hidden" id="block-extra">
